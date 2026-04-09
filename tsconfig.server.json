@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "dist/backend",
+    "rootDir": "src/backend",
+    "declaration": false,
+    "sourceMap": false
+  },
+  "include": ["src/backend/**/*"],
+  "exclude": ["src/frontend/**/*", "src/tests/**/*"]
+}

@@ -1,0 +1,27 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3939
+      DATA_DIR: /data
+      SESSION_SECRET: ${SESSION_SECRET}
+      SECURE_COOKIE: ${SECURE_COOKIE:-true}
+      DEMO_USER: ${DEMO_USER:-demo}
+      DEMO_PASSWORD: ${DEMO_PASSWORD:-demo1234}
+      ALLOW_REGISTRATION: ${ALLOW_REGISTRATION:-false}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-465}
+      SMTP_SECURE: ${SMTP_SECURE:-true}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+      APP_URL: ${APP_URL:-}
+    volumes:
+      - matrix_data:/data
+    ports:
+      - '3939:3939'
+
+volumes:
+  matrix_data:

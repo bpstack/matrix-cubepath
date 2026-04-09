@@ -1,0 +1,74 @@
+{
+  "name": "matrix-cubepath",
+  "productName": "Matrix",
+  "version": "1.0.0",
+  "description": "Projects Management System — Web Edition",
+  "private": true,
+  "packageManager": "pnpm@10.23.0",
+  "scripts": {
+    "dev": "concurrently \"pnpm dev:backend\" \"pnpm dev:frontend\"",
+    "dev:frontend": "vite",
+    "dev:backend": "tsx watch --env-file=.env src/backend/start.ts",
+    "build": "pnpm build:frontend && pnpm build:backend",
+    "build:frontend": "vite build",
+    "build:backend": "tsc -p tsconfig.server.json",
+    "start:prod": "node dist/backend/start.js",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write src/",
+    "format:check": "prettier --check src/",
+    "typecheck": "tsc --noEmit"
+  },
+  "author": {
+    "name": "razyd",
+    "email": "contact.bstack@gmail.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/sql.js": "^1.4.9",
+    "@types/compression": "^1.7.5",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/express": "^4.17.21",
+    "@types/express-rate-limit": "^6.0.2",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^8.57.0",
+    "@typescript-eslint/parser": "^8.57.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.17",
+    "concurrently": "^8.2.2",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "postcss": "^8.4.33",
+    "prettier": "^3.8.1",
+    "tailwindcss": "^3.4.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.4.21",
+    "vite-plugin-pwa": "^1.2.0",
+    "vitest": "^1.2.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.90.21",
+    "sql.js": "^1.12.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "drizzle-orm": "^0.29.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^8.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "recharts": "^3.8.0",
+    "sonner": "^2.0.7",
+    "zod": "^3.22.4",
+    "zustand": "^4.5.0"
+  }
+}

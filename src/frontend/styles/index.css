@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-4px);
+  }
+  40% {
+    transform: translateX(4px);
+  }
+  60% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+/* Higher specificity to override element-level cursor styles without !important */
+.cursor-none[class],
+.cursor-none [class],
+.cursor-none input,
+.cursor-none button,
+.cursor-none a {
+  cursor: none;
+}
+
+/* ── Smooth theme transitions ── */
+* {
+  transition:
+    background-color 200ms ease-in-out,
+    border-color 200ms ease-in-out,
+    color 200ms ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none;
+  }
+}
+
+/* ── Dark theme (default) ── */
+/* Values are R G B channels so Tailwind can apply /opacity modifiers */
+:root {
+  --matrix-bg: 17 17 17; /* #111111 */
+  --matrix-surface: 24 24 24; /* #181818 - slight contrast */
+  --matrix-border: 42 42 42; /* #2a2a2a */
+  --matrix-accent: 240 165 0; /* #f0a500 */
+  --matrix-accent-hover: 255 184 0; /* #ffb800 */
+  --matrix-success: 39 163 90; /* #27a35a */
+  --matrix-warning: 240 165 0; /* #f0a500 */
+  --matrix-danger: 237 66 69; /* #ed4245 */
+  --matrix-muted: 119 119 119; /* #777777 */
+}
+
+/* ── Light theme ── */
+.light {
+  --matrix-bg: 248 249 250; /* #f8f9fa — softer than pure #f5f5f5 */
+  --matrix-surface: 255 255 255; /* #ffffff */
+  --matrix-border: 222 226 230; /* #dee2e6 — slightly blue-gray, more refined */
+  --matrix-accent: 99 52 178; /* #6334b2 — richer purple, better contrast */
+  --matrix-accent-hover: 79 37 155; /* #4f259b */
+  --matrix-success: 25 135 84; /* #198754 — Bootstrap-grade green */
+  --matrix-warning: 173 107 0; /* #ad6b00 — readable on white */
+  --matrix-danger: 185 28 28; /* #b91c1c — strong red */
+  --matrix-muted: 100 107 115; /* #646b73 — blue-gray muted, not flat gray */
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(240, 165, 0, 0.25);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
+}
+
+/*
+ * ── Light mode: invert gray text scale ──
+ * Tailwind gray-200..600 are designed for dark backgrounds.
+ * In light mode we need dark text, so we remap them.
+ * These only activate when <html class="light">.
+ */
+.light .text-gray-100 {
+  color: #111111;
+}
+.light .text-gray-200 {
+  color: #1a1a1a;
+}
+.light .text-gray-300 {
+  color: #2a2a2a;
+}
+.light .text-gray-400 {
+  color: #444444;
+}
+.light .text-gray-500 {
+  color: #666666;
+}
+.light .text-gray-600 {
+  color: #888888;
+}
+.light .text-gray-700 {
+  color: #aaaaaa;
+}
+
+/* Placeholders */
+.light .placeholder-gray-600::placeholder {
+  color: #aaaaaa;
+}
+
+/* White-tinted backgrounds become black-tinted in light mode */
+.light .bg-white\/\[0\.02\],
+.light .bg-white\/\[0\.03\],
+.light .bg-white\/\[0\.04\] {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.light .hover\:bg-white\/\[0\.02\]:hover,
+.light .hover\:bg-white\/\[0\.04\]:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ── Light mode: action button colors need more contrast ── */
+.light .text-yellow-400 {
+  color: #a16800;
+}
+.light .text-yellow-300 {
+  color: #8a5900;
+}
+.light .text-green-400 {
+  color: #1a7a35;
+}
+.light .text-green-300 {
+  color: #15682c;
+}
+.light .text-red-400 {
+  color: #c02020;
+}
+.light .text-red-300 {
+  color: #a01818;
+}
+.light .text-blue-400 {
+  color: #1d5eaa;
+}
+.light .text-blue-300 {
+  color: #1a529a;
+}
+.light .text-orange-400 {
+  color: #b45000;
+}
+.light .text-purple-300 {
+  color: #6a2cb0;
+}
+
+/* Light mode: badge backgrounds (dark-mode bg-*-900/30 → light equivalents) */
+.light .bg-blue-900\/30 {
+  background-color: rgba(59, 130, 246, 0.12);
+}
+.light .bg-purple-900\/30 {
+  background-color: rgba(168, 85, 247, 0.12);
+}
+.light .bg-green-900\/30 {
+  background-color: rgba(34, 197, 94, 0.12);
+}
+.light .bg-yellow-900\/20 {
+  background-color: rgba(234, 179, 8, 0.12);
+}
+.light .bg-red-900\/20 {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Light mode: badge border overrides */
+.light .border-blue-800\/20 {
+  border-color: rgba(59, 130, 246, 0.25);
+}
+.light .border-purple-800\/20 {
+  border-color: rgba(168, 85, 247, 0.25);
+}
+.light .border-green-800\/20 {
+  border-color: rgba(34, 197, 94, 0.25);
+}
+.light .border-red-800\/30 {
+  border-color: rgba(239, 68, 68, 0.25);
+}
+.light .border-green-800\/30 {
+  border-color: rgba(34, 197, 94, 0.25);
+}
+.light .border-yellow-700\/30 {
+  border-color: rgba(234, 179, 8, 0.25);
+}
+
+/* Light mode: yellow-300 text in banners */
+.light .text-yellow-300 {
+  color: #8a5900;
+}
+
+/* Light mode: score colors with /60 opacity need help */
+.light .text-red-400\/60 {
+  color: rgba(192, 32, 32, 0.7);
+}
+
+/* Light mode: matrix-muted/50 needs more contrast */
+.light .text-matrix-muted\/50 {
+  color: rgba(80, 80, 80, 0.7);
+}
+
+/* ── Custom checkbox for dark/light mode ── */
+.matrix-checkbox {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgb(var(--matrix-border));
+  border-radius: 3px;
+  background: rgb(var(--matrix-bg));
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+.matrix-checkbox:hover {
+  border-color: rgb(var(--matrix-accent) / 0.5);
+}
+.matrix-checkbox:checked {
+  background: rgb(var(--matrix-accent) / 0.15);
+  border-color: rgb(var(--matrix-accent) / 0.6);
+}
+.matrix-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: rgb(var(--matrix-accent));
+  font-weight: 600;
+}
+
+/* Active pilled buttons: dark text on orange (dark mode), white on purple (light mode) */
+.pilled-active {
+  color: #1a1a1a;
+}
+.light .pilled-active {
+  color: #ffffff;
+}
+
+/* Light mode: selection */
+.light ::selection {
+  background: rgba(99, 52, 178, 0.2);
+}
+
+/* Light mode: hover states need visible contrast */
+.light .hover\:text-gray-300:hover {
+  color: #1a1a1a !important;
+}
+.light .hover\:text-gray-200:hover {
+  color: #111111 !important;
+}
+.light .hover\:border-gray-500:hover {
+  border-color: #9ca3af !important;
+}
+
+/* Light mode: focus rings */
+.light .focus\:border-matrix-accent\/50:focus {
+  border-color: rgba(99, 52, 178, 0.5);
+  box-shadow: 0 0 0 2px rgba(99, 52, 178, 0.1);
+}
+
+/* Light mode: input fields */
+.light input,
+.light textarea,
+.light select {
+  color: #1a1a1a;
+}
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Scrollbar for light mode */
+.light ::-webkit-scrollbar-track {
+  background: #f1f3f5;
+}
+.light ::-webkit-scrollbar-thumb {
+  background: #ced4da;
+  border-radius: 3px;
+}
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #adb5bd;
+}

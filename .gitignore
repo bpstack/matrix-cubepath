@@ -1,0 +1,84 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build / Output
+.vite/
+out/
+dist/
+build/
+*.tsbuildinfo
+
+# Electron Forge
+.webpack/
+.erb/
+
+# SQLite
+*.db
+*.db-wal
+*.db-shm
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Data directory (user DBs, logs, local settings)
+data/
+
+# Environment / Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+*.p12
+credentials.json
+secrets.json
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+._*
+
+# IDE / Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Testing / Coverage
+coverage/
+.nyc_output/
+
+# AI agents / tools
+.agents/
+.claude/
+.cursor/
+.windsurf/
+.codex/
+.aider*
+.copilot/
+
+# Misc
+*.tgz
+*.tar.gz
+*.zip
+*.out
+.cache/
+.temp/
+.tmp/
+
+#random
+commands.md
