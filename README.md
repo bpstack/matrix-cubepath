@@ -226,11 +226,10 @@ Matrix-CubePath es la evolución web de [Matrix](https://github.com/bpstack/matr
 
 ## Licencia
 
-Copyright (c) 2026 [bpstack](https://stackbp.es)
+[MIT](LICENSE) © 2026 [bpstack](https://stackbp.es)
 
-All rights reserved.
-
-You may view this code for educational purposes only.
-You may not copy, modify, distribute, or use this software without explicit permission.
+Puedes usar, modificar y distribuir Matrix libremente, incluso con fines
+comerciales, siempre que mantengas el aviso de copyright y la licencia.
+El software se ofrece «tal cual», sin garantías.
 
 [<sub>↑ Índice</sub>](#top)
