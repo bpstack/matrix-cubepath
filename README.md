@@ -1,142 +1,142 @@
 <a name="top"></a>
 
-# Matrix — Sistema de Gestión de Proyectos
+# Matrix — Project Management System
 
 <p align="left">
-  Matrix es una plataforma full-stack de productividad pensada para desarrolladores que manejan múltiples proyectos a la vez. Conecta tu misión de alto nivel con las tareas del día a día a través de una jerarquía clara (<strong>Mission → Objectives → Plans → Tasks</strong>), sincroniza tus repos de GitHub, evalúa ideas antes de comprometerte con ellas, almacena contraseñas de forma segura y te ofrece métricas, rachas de tareas ejecutadas y una vista de enfoque diario para que nada se pierda.
+  Matrix is a full-stack productivity platform for developers juggling multiple projects at once. It connects your high-level mission to day-to-day tasks through a clear hierarchy (<strong>Mission → Objectives → Plans → Tasks</strong>), syncs your GitHub repos, lets you evaluate ideas before committing to them, stores passwords securely, and gives you metrics, task streaks, and a daily focus view so nothing gets lost.
 </p>
 
 <p align="left">
-  <strong>Define tu misión. Divídela en objetivos. Planifica. Ejecuta las tareas para cada plan. Controla cada proyecto, captura cada idea y guarda tus credenciales de forma segura — todo desde un dashboard self-hosted.</strong>
+  <strong>Define your mission. Break it into objectives. Plan. Execute the tasks for each plan. Track every project, capture every idea, and store your credentials securely — all from a self-hosted dashboard.</strong>
 </p>
 
 <p align="center">
   <a href="#demo">Demo</a> •
-  <a href="#el-problema">El Problema</a> •
-  <a href="#características">Características</a> •
-  <a href="#correr-en-local">Local</a> •
-  <a href="#despliegue-en-cubepath">Despliegue</a> •
+  <a href="#the-problem">The Problem</a> •
+  <a href="#features">Features</a> •
+  <a href="#running-locally">Local</a> •
+  <a href="#deployment-on-cubepath">Deployment</a> •
   <a href="#tech-stack">Stack</a> •
-  <a href="#origen-del-proyecto">Origen</a> •
-  <a href="#licencia">Licencia</a>
+  <a href="#project-origin">Origin</a> •
+  <a href="#license">License</a>
 </p>
 
 ---
 
 <p align="center">
-  <img src="public/light-overview.png" alt="Overview — dashboard principal con misión, estadísticas, actividad y panel lateral" width="100%" />
+  <img src="public/light-overview.png" alt="Overview — main dashboard with mission, stats, activity and side panel" width="100%" />
 </p>
 
 <p align="center">
-  <img src="public/dark-tasks.png" alt="Task Board — tablero Kanban con prioridades, deadlines y métricas" width="100%" />
+  <img src="public/dark-tasks.png" alt="Task Board — Kanban board with priorities, deadlines and metrics" width="100%" />
 </p>
 
 <p align="center">
-  <img src="public/dark-projects.png" alt="Projects — vista de proyectos sincronizados con GitHub" width="100%" />
+  <img src="public/dark-projects.png" alt="Projects — view of projects synced with GitHub" width="100%" />
 </p>
 
 ---
 
 ## Demo
 
-> **Nota:** Este repositorio es la versión pública de referencia. La capa de base de datos usa **sql.js** (SQLite en WebAssembly, sin compilación nativa) y el módulo de **Password Vault no está incluido** en esta versión. Los datos viven en memoria y se resetean al reiniciar el servidor — ideal para explorar el código. Ver [Correr en local](#correr-en-local).
+> **Note:** This repository is the public reference version. The database layer uses **sql.js** (SQLite in WebAssembly, no native compilation) and the **Password Vault module is not included** in this version. Data lives in memory and resets on server restart — ideal for exploring the code. See [Running locally](#running-locally).
 
-Hay una demo en vivo disponible en **[matrix.stackbp.es](https://matrix.stackbp.es)**
+There's a live demo available at **[matrix.stackbp.es](https://matrix.stackbp.es)**
 
-Haz clic en el botón `$ access --demo` en la página de login — rellena automáticamente las credenciales de demo con un cursor animado y te loguea. También puedes introducir `demo / demo1234` manualmente.
+Click the `$ access --demo` button on the login page — it auto-fills the demo credentials with an animated cursor and logs you in. You can also enter `demo / demo1234` manually.
 
-La cuenta demo viene con datos precargados (misiones, tareas, ideas). Usa el botón **Restaurar** en Settings para resetear los datos de demo en cualquier momento.
+The demo account comes with preloaded data (missions, tasks, ideas). Use the **Restore** button in Settings to reset the demo data at any time.
 
-[<sub>↑ Índice</sub>](#top)
-
----
-
-## El Problema
-
-Tienes ideas dispersas en archivos `.txt`. Proyectos sin prioridades claras. Tareas desconectadas de cualquier objetivo mayor. Credenciales enterradas en algun .env o .txt perdido en tu PC.
-
-Preguntas que aparecen constantemente:
-
-- ¿Cuál es el plan real ahora mismo?
-- ¿En qué tarea debería focalizarme hoy?
-- ¿En qué estado están todos mis side projects?
-- ¿Dónde guardé esa API key?
-
-**Matrix** reúne todo esto en una plataforma self-hosted — tus datos, tu servidor, tus reglas.
-
-[<sub>↑ Índice</sub>](#top)
+[<sub>↑ Back to top</sub>](#top)
 
 ---
 
-## Características
+## The Problem
+
+You've got ideas scattered across `.txt` files. Projects with no clear priorities. Tasks disconnected from any bigger objective. Credentials buried in some lost `.env` or `.txt` on your PC.
+
+Questions that keep coming up:
+
+- What's the actual plan right now?
+- What task should I focus on today?
+- What state are all my side projects in?
+- Where did I save that API key?
+
+**Matrix** brings all of this together in a self-hosted platform — your data, your server, your rules.
+
+[<sub>↑ Back to top</sub>](#top)
+
+---
+
+## Features
 
 ### Mission Control
 
-Planificación estructurada top-down: **Mission → Objectives → Plans → Tasks**. El progreso se acumula automáticamente en cada nivel para que siempre sepas dónde estás.
+Structured top-down planning: **Mission → Objectives → Plans → Tasks**. Progress rolls up automatically at every level so you always know where you stand.
 
 ### Task Board
 
-Tablero estilo Kanban con prioridades (crítica / alta / media / baja), deadlines y seguimiento de estado (Todo → In Progress → Done). Selector de fechas con calendario.
+Kanban-style board with priorities (critical / high / medium / low), deadlines, and status tracking (Todo → In Progress → Done). Calendar-based date picker.
 
 ### Project Tracker
 
-Sincroniza tus repos de GitHub. Cada proyecto muestra:
+Syncs your GitHub repos. Each project shows:
 
-- Desglose de lenguajes (TypeScript, Python, Rust, Go...)
-- Último commit, rama activa
-- Cantidad de dependencias
-- Detección de tests y CI/CD
-- Estado de README / ROADMAP / TODO
+- Language breakdown (TypeScript, Python, Rust, Go...)
+- Latest commit, active branch
+- Dependency count
+- Test and CI/CD detection
+- README / ROADMAP / TODO status
 
-Los proyectos se pueden vincular a cualquier estado de la jerarquía de misiones (polymorphic links).
+Projects can be linked to any level of the mission hierarchy (polymorphic links).
 
 ### Ideas Pipeline
 
-Captura ideas en bruto, puntúalas en varias dimensiones (alineamiento, impacto, coste, riesgo) y muévelas a través del flujo: `draft → evaluating → approved → in_progress → done / discarded`.
+Capture raw ideas, score them across several dimensions (alignment, impact, cost, risk), and move them through the flow: `draft → evaluating → approved → in_progress → done / discarded`.
 
 ### Daily Notes
 
-Bloc de notas diario basado en calendario. Elige un día, escribe texto plano, se guarda en la base de datos. Los días con notas se marcan con un punto. Auto-guardado con debounce + botón de guardado manual.
+Calendar-based daily notepad. Pick a day, write plain text, it's saved to the database. Days with notes are marked with a dot. Auto-saves with debounce + manual save button.
 
 ### Activity & Analytics
 
-Cada acción se registra automáticamente. El panel lateral muestra:
+Every action is logged automatically. The side panel shows:
 
-- Heatmap de actividad diaria/semanal
-- Tendencias de tareas completadas
-- Distribución del pipeline de ideas
-- Temporizador Pomodoro + seguimiento de sesiones
-- Contador de rachas
+- Daily/weekly activity heatmap
+- Completed task trends
+- Ideas pipeline distribution
+- Pomodoro timer + session tracking
+- Streak counter
 
-### Autenticación y Recuperación de Contraseña
+### Authentication and Password Recovery
 
-Login y registro con email. Recuperación de contraseña vía email (Resend/SMTP). Sin SMTP configurado, el link de reset aparece en los logs del servidor (panel de Dokploy) — útil para instancias self-hosted sin proveedor de email.
+Login and sign-up with email. Password recovery via email (Resend/SMTP). Without SMTP configured, the reset link shows up in the server logs (Dokploy panel) — handy for self-hosted instances without an email provider.
 
 ### System Status
 
-Monitoriza el estado de tus servicios externos directamente desde el panel lateral. Ping HTTP a backends (Render y similares) con detección de servicios dormidos, y check TCP a bases de datos externas (MySQL/PostgreSQL). Los servicios sleeping se pueden despertar con un clic. Configuración cifrada con la clave del vault.
+Monitor your external services' status directly from the side panel. HTTP pings to backends (Render and similar) with sleeping-service detection, and TCP checks against external databases (MySQL/PostgreSQL). Sleeping services can be woken up with one click. Configuration encrypted with the vault key.
 
 ### Backup
 
-Descarga tu base de datos SQLite personal directamente desde Settings — un único archivo con todas tus misiones, tareas, ideas, proyectos, notas y contraseñas cifradas.
+Download your personal SQLite database directly from Settings — a single file with all your missions, tasks, ideas, projects, notes, and encrypted passwords.
 
-### Seguridad y Multi-usuario
+### Security and Multi-user
 
-Cada usuario tiene su propia base de datos SQLite aislada — los datos de un usuario nunca se mezclan con los de otro. Headers HTTP de seguridad en todas las respuestas (HSTS, CSP, X-Frame-Options, X-Content-Type-Options, Permissions-Policy, Referrer-Policy). `x-powered-by` desactivado. `security.txt` y `robots.txt` servidos. Detalles de errores internos ocultos en producción. Apagado graceful del servidor con timeout de respaldo. El registro de nuevos usuarios se controla por variable de entorno.
+Each user has their own isolated SQLite database — one user's data never mixes with another's. Security HTTP headers on every response (HSTS, CSP, X-Frame-Options, X-Content-Type-Options, Permissions-Policy, Referrer-Policy). `x-powered-by` disabled. `security.txt` and `robots.txt` served. Internal error details hidden in production. Graceful server shutdown with a fallback timeout. New user registration is controlled via environment variable.
 
-### i18n — Sistema Bilingüe Completo (EN/ES)
+### i18n — Full Bilingual System (EN/ES)
 
-Inglés y español soportados en toda la aplicación — tanto la interfaz como los datos de demostración. Al cambiar de idioma, el sistema re-genera todos los datos demo (misiones, tareas, ideas, proyectos, contraseñas) en el idioma seleccionado sin recargar la página. La preferencia se persiste por usuario en el backend y se restaura automáticamente al iniciar sesión. Botón de cambio rápido disponible en Overview, Settings y LoginPage.
+English and Spanish supported throughout the app — both the UI and the demo data. Switching language regenerates all demo data (missions, tasks, ideas, projects, passwords) in the selected language without reloading the page. The preference is persisted per user on the backend and restored automatically on login. Quick-switch button available on Overview, Settings, and the login page.
 
 ### Responsive
 
-Totalmente funcional en móvil y tablet sin perder la experiencia de escritorio. El sidebar se colapsa en un overlay deslizable con botón hamburguesa. Las columnas Kanban se apilan verticalmente en pantallas pequeñas. Cada tarjeta de tarea incluye un selector de estado inline (solo en móvil) como alternativa al drag and drop. Todos los modales y vistas se adaptan con breakpoints de Tailwind — sin dependencias extra.
+Fully functional on mobile and tablet without losing the desktop experience. The sidebar collapses into a slide-out overlay with a hamburger button. Kanban columns stack vertically on small screens. Each task card includes an inline status selector (mobile only) as an alternative to drag and drop. All modals and views adapt via Tailwind breakpoints — no extra dependencies.
 
-[<sub>↑ Índice</sub>](#top)
+[<sub>↑ Back to top</sub>](#top)
 
 ---
 
-## Correr en local
+## Running locally
 
 ```bash
 cp .env.example .env
@@ -144,92 +144,92 @@ pnpm install
 pnpm dev
 ```
 
-Abre `http://localhost:5173` y entra con `demo / demo1234`.
+Open `http://localhost:5173` and log in with `demo / demo1234`.
 
-> Los datos viven en memoria — se resetean cada vez que el servidor se reinicia. Para persistencia, la capa de DB es swappable por libsql.
+> Data lives in memory — it resets every time the server restarts. For persistence, the DB layer is swappable for libsql.
 
-[<sub>↑ Índice</sub>](#top)
+[<sub>↑ Back to top</sub>](#top)
 
 ---
 
-## Despliegue en CubePath
+## Deployment on CubePath
 
-Matrix corre en producción sobre un VPS de [CubePath](https://cubepath.dev) con [Dokploy](https://dokploy.com) instalado como gestor de despliegues. El flujo es directo: el repositorio de GitHub está conectado a Dokploy, que escucha los pushes a `main`. Cada push dispara un build Docker multi-stage y redespliegue automático. Traefik (incluido en Dokploy) se encarga del HTTPS con certificados Let's Encrypt. La app completa — backend, frontend y base de datos — corre en un único contenedor dentro del VPS, accesible en [matrix.stackbp.es](https://matrix.stackbp.es).
+Matrix runs in production on a [CubePath](https://cubepath.dev) VPS with [Dokploy](https://dokploy.com) installed as the deployment manager. The flow is straightforward: the GitHub repository is connected to Dokploy, which listens for pushes to `main`. Every push triggers a multi-stage Docker build and automatic redeploy. Traefik (bundled with Dokploy) handles HTTPS with Let's Encrypt certificates. The whole app — backend, frontend, and database — runs in a single container inside the VPS, accessible at [matrix.stackbp.es](https://matrix.stackbp.es).
 
-**¿Por qué CubePath + Dokploy?**
+**Why CubePath + Dokploy?**
 
-- **Todo en un mismo lugar**: backend (Node.js + Express), base de datos (SQLite persistente en volumen Docker) y frontend (React servido como estático) corren en un único contenedor dentro del VPS, sin necesidad de servicios externos.
-- **HTTPS automático**: Traefik (integrado en Dokploy) provisiona y renueva certificados Let's Encrypt sin configuración manual.
-- **Deploy continuo**: cada push a `main` en GitHub dispara un rebuild y redespliegue automático — sin claves SSH, sin scripts de deploy, sin intervención manual.
-- **Panel web**: Dokploy ofrece una interfaz visual para gestionar variables de entorno, dominios, logs y rollbacks — todo desde el navegador.
-- **Simplicidad**: desde un `docker-compose.yml` y unas variables de entorno, la app completa queda en producción con HTTPS en minutos.
+- **Everything in one place**: backend (Node.js + Express), database (SQLite persisted on a Docker volume), and frontend (React served as static files) all run in a single container inside the VPS, with no external services needed.
+- **Automatic HTTPS**: Traefik (built into Dokploy) provisions and renews Let's Encrypt certificates with no manual configuration.
+- **Continuous deployment**: every push to `main` on GitHub triggers a rebuild and automatic redeploy — no SSH keys, no deploy scripts, no manual intervention.
+- **Web panel**: Dokploy offers a visual interface for managing environment variables, domains, logs, and rollbacks — all from the browser.
+- **Simplicity**: from a `docker-compose.yml` and a few environment variables, the whole app is in production with HTTPS within minutes.
 
-### Arquitectura
+### Architecture
 
 ```
 ┌─── VPS (CubePath) ───────────────────────────────┐
 │                                                   │
 │  ┌── Traefik (Dokploy) ────────────────────────┐  │
 │  │  Auto HTTPS (Let's Encrypt)                 │  │
-│  │  Puertos 80/443 → reverse proxy a app:3939  │  │
+│  │  Ports 80/443 → reverse proxy to app:3939   │  │
 │  └──────────────┬──────────────────────────────┘  │
 │                 │                                  │
-│  ┌── Contenedor: app ──────────────────────────┐  │
-│  │  Node.js (Express + frontend estático)      │  │
-│  │  Puerto 3939 (interno)                      │  │
+│  ┌── Container: app ───────────────────────────┐  │
+│  │  Node.js (Express + static frontend)        │  │
+│  │  Port 3939 (internal)                       │  │
 │  └────────────────┬───────────────────────────┘   │
-│                   │ lectura/escritura              │
-│  ┌── Volumen: matrix_data (/data) ──────────────┐ │
-│  │  auth.db        ← usuarios y sesiones        │ │
-│  │  users/*.db     ← una DB aislada por usuario │ │
+│                   │ read/write                     │
+│  ┌── Volume: matrix_data (/data) ────────────────┐ │
+│  │  auth.db        ← users and sessions          │ │
+│  │  users/*.db     ← one isolated DB per user     │ │
 │  └──────────────────────────────────────────────┘ │
 └───────────────────────────────────────────────────┘
 ```
 
-[<sub>↑ Índice</sub>](#top)
+[<sub>↑ Back to top</sub>](#top)
 
 ---
 
 ## Tech Stack
 
-| Capa       | Tecnología                                                       |
-| ---------- | ---------------------------------------------------------------- |
-| Backend    | Node.js + Express 4 + Drizzle ORM                                |
-| Database   | SQLite vía sql.js (in-memory) — swappable por libsql para persistencia |
-| Frontend   | React 18 + Vite + Tailwind CSS 3.4                               |
-| State      | Zustand + React Query                                            |
-| Auth       | scrypt password hashing + HMAC session tokens + httpOnly cookies |
-| Validation | Zod (backend) + validación client-side                           |
-| Infra      | Docker multi-stage + Dokploy + Traefik (auto HTTPS)              |
-| CI/CD      | GitHub Actions (typecheck) + Dokploy auto-deploy                 |
-| Testing    | Vitest                                                           |
+| Layer      | Technology                                                        |
+| ---------- | ------------------------------------------------------------------ |
+| Backend    | Node.js + Express 4 + Drizzle ORM                                 |
+| Database   | SQLite via sql.js (in-memory) — swappable for libsql for persistence |
+| Frontend   | React 18 + Vite + Tailwind CSS 3.4                                |
+| State      | Zustand + React Query                                              |
+| Auth       | scrypt password hashing + HMAC session tokens + httpOnly cookies  |
+| Validation | Zod (backend) + client-side validation                            |
+| Infra      | Docker multi-stage + Dokploy + Traefik (auto HTTPS)                |
+| CI/CD      | GitHub Actions (typecheck) + Dokploy auto-deploy                  |
+| Testing    | Vitest                                                             |
 
-[<sub>↑ Índice</sub>](#top)
-
----
-
-## Origen del proyecto
-
-Matrix-CubePath es la evolución web de [Matrix](https://github.com/bpstack/matrix), originalmente construido como app de escritorio con Electron (pensada para uso personal). La jerarquía de misiones y la gestión de tareas se mantienen, pero la migración trajo cambios fundamentales:
-
-|                          | Matrix (Electron)                                             | Matrix-CubePath (Web)                                       |
-| ------------------------ | ------------------------------------------------------------- | ----------------------------------------------------------- |
-| **Runtime**              | App de escritorio (.exe / .dmg)                               | Web app — accesible desde cualquier navegador               |
-| **Usuarios**             | Un solo usuario, sin autenticación                            | Multi-usuario con registro, login y rate limiting           |
-| **Base de datos**        | Un único archivo SQLite compartido                            | Auth DB + bases de datos SQLite aisladas por usuario        |
-| **Escaneo de proyectos** | Sistema de archivos local (directorios, git info, file stats) | GitHub API (repos, lenguajes, commits, detección de README) |
-| **Despliegue**           | Binario empaquetado con auto-updates                          | Contenedor Docker en cualquier VPS o cloud provider         |
-
-[<sub>↑ Índice</sub>](#top)
+[<sub>↑ Back to top</sub>](#top)
 
 ---
 
-## Licencia
+## Project Origin
+
+Matrix-CubePath is the web evolution of [Matrix](https://github.com/bpstack/matrix), originally built as an Electron desktop app (for personal use). The mission hierarchy and task management carried over, but the migration brought fundamental changes:
+
+|                       | Matrix (Electron)                                              | Matrix-CubePath (Web)                                        |
+| --------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Runtime**           | Desktop app (.exe / .dmg)                                        | Web app — accessible from any browser                          |
+| **Users**             | Single user, no authentication                                   | Multi-user with sign-up, login, and rate limiting               |
+| **Database**          | A single shared SQLite file                                      | Auth DB + isolated SQLite databases per user                    |
+| **Project scanning**  | Local filesystem (directories, git info, file stats)             | GitHub API (repos, languages, commits, README detection)       |
+| **Deployment**        | Packaged binary with auto-updates                                 | Docker container on any VPS or cloud provider                  |
+
+[<sub>↑ Back to top</sub>](#top)
+
+---
+
+## License
 
 [MIT](LICENSE) © 2026 [bpstack](https://stackbp.es)
 
-Puedes usar, modificar y distribuir Matrix libremente, incluso con fines
-comerciales, siempre que mantengas el aviso de copyright y la licencia.
-El software se ofrece «tal cual», sin garantías.
+You can use, modify, and distribute Matrix freely, even for commercial
+purposes, as long as you keep the copyright notice and license.
+The software is provided "as is", without warranties.
 
-[<sub>↑ Índice</sub>](#top)
+[<sub>↑ Back to top</sub>](#top)
