@@ -210,7 +210,7 @@ Matrix runs in production on a [CubePath](https://cubepath.dev) VPS with [Dokplo
 
 ## Project Origin
 
-Matrix-CubePath is the web evolution of [Matrix](https://github.com/bpstack/matrix), originally built as an Electron desktop app (for personal use). The mission hierarchy and task management carried over, but the migration brought fundamental changes:
+Matrix-CubePath is the web evolution of Matrix, originally built as an Electron desktop app (for personal use; installers in [matrix-releases](https://github.com/bpstack/matrix-releases)). The mission hierarchy and task management carried over, but the migration brought fundamental changes:
 
 |                       | Matrix (Electron)                                              | Matrix-CubePath (Web)                                        |
 | --------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------- |
